@@ -8,19 +8,29 @@
 <body>
     <h1>Testing React Native Data Transfer</h1>
     <p>Based off: https://www.educative.io/answers/how-to-communicate-with-data-between-webviews-in-react-native</p>
-    <button onclick="sendDataToReactNativeApp()">
+    <button
+        onclick="sendDataToReactNativeApp()"
+        style="
+            padding: 20px;
+            width: 350px;
+            font-size: 15pt;
+            color: white;
+            background-color: green;
+            border: 1px solid darkgrey;
+          "
+    >
         Send Data To React Native App
     </button>
     <script>
         const sendDataToReactNativeApp = async () => {
             try {
-                window.ReactNativeWebView.postMessage('Data from WebView / Website');
+                window.ReactNativeWebView.postMessage('Hello from the webview! 👋');
             } catch (e) {
                 alert(`Error: ${e}`);
             }
         };
         window.addEventListener("message", message => {
-            alert(message.data);
+            alert(`Message received: "${message.data}"`);
         });
     </script>
 </body>
